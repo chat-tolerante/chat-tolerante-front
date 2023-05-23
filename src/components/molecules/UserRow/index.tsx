@@ -10,6 +10,11 @@ export interface IUserRowProps extends IDefaultProps{
     lastMessage?: IMessage;
 }
 
+/**
+ * Component to show a User with its name and UserCircle
+ *
+ * @param props - Component props
+ */
 export default function UserRow(props: IUserRowProps){
 	return (
 		<div className={`w-full ${props.className || ''}`}>

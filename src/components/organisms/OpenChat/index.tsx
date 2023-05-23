@@ -5,6 +5,11 @@ import OpenChatRow from 'src/components/molecules/OpenChatRow';
 import {IDefaultProps} from 'src/types/default-props';
 import styles from './chat.module.css';
 
+/**
+ * Shows the whole opned chat
+ *
+ * @param props - Component props
+ */
 export default function OpenChat(props: IDefaultProps){
 	return (
 		<div className={`flex flex-col ${props.className || ''}`}>

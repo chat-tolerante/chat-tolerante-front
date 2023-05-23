@@ -14,6 +14,13 @@ export const globalActions = {
 	clear: ()=>({type: globalActionTypes.clear})
 };
 
+/**
+ * Global reducer. Used to inyect extra global action 'clear'
+ * To clear all the redux store
+ *
+ * @param state - The global state
+ * @param action - The action to perform
+ */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function rootReducer(state: any, action: Action){
 	if(action.type === globalActions.clear) {

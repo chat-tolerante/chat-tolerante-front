@@ -6,6 +6,11 @@ export interface IOpenChatRowProps{
     user: IUser
 }
 
+/**
+ * Component for showing the current state of the opened chat
+ *
+ * @param props - Component props
+ */
 export default function OpenChatRow(props: IOpenChatRowProps){
 	return (
 		<div className='bg-bg2 flex justify-center items-center p-3'>

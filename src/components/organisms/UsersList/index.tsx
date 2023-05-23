@@ -8,6 +8,11 @@ export interface IUserListProps extends IDefaultProps{
     users: IUser[];
 }
 
+/**
+ * List of users and a search input
+ *
+ * @param props - The component prosp
+ */
 export default function UserList(props: IUserListProps){
 	return (
 		<div className="bg-bg1 h-full flex flex-col">

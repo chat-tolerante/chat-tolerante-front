@@ -6,7 +6,8 @@
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
+        "plugin:jsdoc/recommended-typescript-error"
     ],
     "overrides": [],
     "parser": "@typescript-eslint/parser",
@@ -78,7 +79,10 @@
                 "logical": "ignore",
                 "prop": "ignore"
             }
-        ]
+        ],
+        "jsdoc/require-returns": "off",
+        "jsdoc/require-hyphen-before-param-description": "error",
+        "jsdoc/tag-lines": ["error", "any", {"startLines": 1}]
     },
     "settings": {
         "import/resolver": {

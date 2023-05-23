@@ -1,21 +1,21 @@
 .triangle{
     border-left: 20px solid transparent;
-    border-right: 18px solid rgb(var(--color-bg1));
+    border-right: 15px solid rgb(var(--color-bg1));
     border-bottom: 20px solid transparent;
     width: 20px;
     height: 20px;
     position: absolute;
-    left: -38px;
+    left: -35px;
     top: 0px
 }
 
 .triangle_inverted{
     border-right: 20px solid transparent;
-    border-left: 18px solid rgb(var(--color-bg-green));
+    border-left: 15px solid rgb(var(--color-bg-green));
     border-bottom: 20px solid transparent;
     width: 20px;
     height: 20px;
     position: absolute;
-    right: -38px;
+    right: -35px;
     top: 0px
 }

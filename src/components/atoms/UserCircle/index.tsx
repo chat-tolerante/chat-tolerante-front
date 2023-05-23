@@ -6,6 +6,11 @@ export interface IUserCircleProps extends IDefaultProps {
     username: string;
 }
 
+/**
+ * Component for showing a circle with user initials
+ *
+ * @param props - The user circle initials
+ */
 export default function UserCircle(props: IUserCircleProps){
 	const initials = useMemo(()=>{
 		const username = props.username;
