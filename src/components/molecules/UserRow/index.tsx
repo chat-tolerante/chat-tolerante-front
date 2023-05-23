@@ -22,7 +22,7 @@ export default function UserRow(props: IUserRowProps){
 					)}
 				</div>
 			</div>
-			<Divider className='ml-auto mr-auto' />
+			<Divider />
 		</div>
 	);
 }

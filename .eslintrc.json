@@ -8,8 +8,7 @@
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended"
     ],
-    "overrides": [
-    ],
+    "overrides": [],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -37,16 +36,53 @@
             "error",
             "always"
         ],
-		"@typescript-eslint/consistent-type-definitions": ["error", "interface"],
-        "key-spacing": ["error", {"beforeColon":false,"afterColon":true, "mode": "strict"}],
-        "arrow-spacing": ["error", {"before":false,"after":false}],
-        "@typescript-eslint/type-annotation-spacing": ["error", {"before":false,"after":true}],
-        "object-curly-spacing":["error", "never"],
-        "react/react-in-jsx-scope": "off"
+        "@typescript-eslint/consistent-type-definitions": [
+            "error",
+            "interface"
+        ],
+        "key-spacing": [
+            "error",
+            {
+                "beforeColon": false,
+                "afterColon": true,
+                "mode": "strict"
+            }
+        ],
+        "arrow-spacing": [
+            "error",
+            {
+                "before": false,
+                "after": false
+            }
+        ],
+        "@typescript-eslint/type-annotation-spacing": [
+            "error",
+            {
+                "before": false,
+                "after": true
+            }
+        ],
+        "object-curly-spacing": [
+            "error",
+            "never"
+        ],
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-wrap-multilines": [
+            "error",
+            {
+                "declaration": "parens",
+                "assignment": "parens",
+                "return": "parens-new-line",
+                "arrow": "parens",
+                "condition": "ignore",
+                "logical": "ignore",
+                "prop": "ignore"
+            }
+        ]
     },
     "settings": {
         "import/resolver": {
-            "typescript": {} 
+            "typescript": {}
+        }
     }
-  }
 }

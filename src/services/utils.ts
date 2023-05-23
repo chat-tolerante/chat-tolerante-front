@@ -6,7 +6,7 @@ export function stringToColor(str: string) {
 	let colour = '#';
 	for (let i = 0; i < 3; i++) {
 		const value = (hash >> (i * 8)) & 0xFF;
-		colour += (value > 100 ? value : (value+100)&255).toString(16).padStart(2,'0');
+		colour += (value > 120 ? value : (value+130)&255).toString(16).padStart(2,'0');
 	}
 	return colour;
 }

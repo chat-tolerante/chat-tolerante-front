@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,8 +8,9 @@
         --color-divider: 77 77 77;
         --color-primary: 106 178 95;
         /*--color-bg1: 217 217 217;*/
-        --color-bg1: 237 237 237;
+        --color-bg1: 220 220 220;
         --color-bg2: 174 174 174;
+        --color-bg-green: 164 217 156;
         --color-gradient1: 122 122 122;
         --color-gradient2: 61 61 61;
     }
@@ -23,6 +25,7 @@ body,html,#root{
     height: 100vh;
     width: 100vw;
     color: white;
+    font-family: 'Inter', sans-serif;
 }
 
 .text-border{

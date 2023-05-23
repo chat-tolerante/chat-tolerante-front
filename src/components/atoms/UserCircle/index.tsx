@@ -20,7 +20,7 @@ export default function UserCircle(props: IUserCircleProps){
 	const bgColor = useMemo(()=>stringToColor(props.username),[props.username]);
 
 	return (
-		<div className={`h-12 w-12 text-2xl tracking-wider font-bold rounded-full flex items-center justify-center text-border ${props.className || ''}`} style={{backgroundColor: bgColor}}>
+		<div className={`h-12 w-12 text-xl tracking-wide font-bold rounded-full flex items-center justify-center text-border ${props.className || ''}`} style={{backgroundColor: bgColor}}>
 			<span className='mt-[-3px]'>{initials}</span>
 		</div>
 	);
