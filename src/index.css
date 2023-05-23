@@ -8,13 +8,14 @@
         --color-divider: 77 77 77;
         /*--color-primary: 106 178 95;*/
         --color-primary: 33 150 15;
+        --color-secondary: 53 170 35;
         /*--color-bg1: 217 217 217;*/
         /*--color-bg1: 220 220 220;*/
-        --color-bg1: 240 240 240;
+        --color-bg1: 230 230 230;
         --color-bg2: 174 174 174;
         --color-bg-green: 164 217 156;
-        --color-gradient1: 122 122 122;
-        --color-gradient2: 61 61 61;
+        --color-gradient1: 140 140 140;
+        --color-gradient2: 40 40 40;
     }
 }
 

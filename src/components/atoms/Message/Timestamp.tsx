@@ -12,7 +12,7 @@ export interface ITimestampProps{
  */
 export default function Timestamp(props: ITimestampProps & IDefaultProps){
 	return (
-		<div className={`text-gradient1 font-thin text-right text-xs ${props.className || ''}`}>
+		<div className={`text-gradient1 font-light text-right text-xs ${props.className || ''}`}>
 			{dateToString(props.date)}
 		</div>
 	);
