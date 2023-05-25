@@ -44,3 +44,10 @@ export function dateToString(date: Date){
 		date.getHours().toString().padStart(2,'0')}:${
 		date.getMinutes().toString().padStart(2,'0')}`;
 }
+
+/**
+ * Checks if the screen is small
+ */
+export function isSmScreen(){
+	return window.outerWidth <= 640;
+}

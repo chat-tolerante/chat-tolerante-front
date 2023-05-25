@@ -75,14 +75,23 @@
                 "assignment": "parens",
                 "return": "parens-new-line",
                 "arrow": "parens",
-                "condition": "ignore",
-                "logical": "ignore",
-                "prop": "ignore"
+                "condition": "parens",
+                "logical": "parens-new-line",
+                "prop": "parens"
             }
         ],
         "jsdoc/require-returns": "off",
         "jsdoc/require-hyphen-before-param-description": "error",
-        "jsdoc/tag-lines": ["error", "any", {"startLines": 1}]
+        "jsdoc/tag-lines": [
+            "error",
+            "any",
+            {
+                "startLines": 1
+            }
+        ],
+        "react/jsx-closing-tag-location": "error",
+        "react/jsx-one-expression-per-line": "error",
+        "react/jsx-indent": ["error", "tab"]
     },
     "settings": {
         "import/resolver": {

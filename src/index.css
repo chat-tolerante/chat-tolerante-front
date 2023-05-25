@@ -29,6 +29,7 @@ body,html,#root{
     width: 100vw;
     color: white;
     font-family: 'Inter', sans-serif;
+    background-color: rgb(var(--color-bg1));
 }
 
 .text-border{
