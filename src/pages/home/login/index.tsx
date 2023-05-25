@@ -11,12 +11,12 @@ import {loginSchema, newLoginCredentials} from 'src/schemas/login.schema';
  */
 export default function Login(){
 	return (
-		<Container className='md:py-60'>
-			<Card className='bg-bg1 max-w-screen-md w-full h-full flex flex-col justify-center items-center'>
-				<div className='text-gray-600 font-bold text-3xl py-12 text-center'>Iniciar sesión</div>
-				<div className='flex-1 w-8/12'>
+		<Container>
+			<Card className='bg-bg1 max-w-screen-md w-full h-full md:h-auto flex flex-col items-center py-20'>
+				<div className='text-gray-600 font-bold my-4 text-3xl text-center flex-1 flex items-center'>Iniciar sesión</div>
+				<div className='flex-[3] md:w-8/12 w-10/12'>
 					<Formik onSubmit={console.log} initialValues={newLoginCredentials()} validationSchema={loginSchema}>
-						<Form>
+						<Form >
 							<CustomFormikInput placeholder='Correo' className='my-5' name='email'/>
 							<CustomFormikInput placeholder='Contraseña' className='my-5' name='password'/>
 							<div className='flex flex-col-reverse md:flex-row  justify-between mt-16 items-center'>
