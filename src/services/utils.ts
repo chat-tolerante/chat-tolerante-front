@@ -38,16 +38,29 @@ export function stringToColor(str: string) {
  *
  * @param date - The date to convert
  */
-export function dateToString(date: Date){
-	return `${date.getDate().toString().padStart(2,'0')} ${
+export function dateToString(date: Date) {
+	return `${date.getDate().toString()
+		.padStart(2,'0')} ${
 		Months[date.getMonth()]}, ${
-		date.getHours().toString().padStart(2,'0')}:${
-		date.getMinutes().toString().padStart(2,'0')}`;
+		date.getHours().toString()
+			.padStart(2,'0')}:${
+		date.getMinutes().toString()
+			.padStart(2,'0')}`;
 }
 
 /**
  * Checks if the screen is small
  */
-export function isSmScreen(){
+export function isSmScreen() {
 	return window.outerWidth <= 640;
+}
+
+/**
+ * Checks if a values is not undefined
+ *
+ * @param value - The value to check
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function isNotUndef(value?: any) {
+	return typeof value !== 'undefined';
 }

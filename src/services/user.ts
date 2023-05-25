@@ -8,11 +8,13 @@ const MOCKUP_EMAIL='kevin@test.com';
  *
  * @param credentials - Login credentials
  */
-export async function login(credentials: TLoginCredentials): Promise<IUser>{
+export async function login(credentials: TLoginCredentials): Promise<IUser> {
 	const {email, password} = credentials;
 	if(email !== MOCKUP_EMAIL || !password)
 		return Promise.reject({status: 401});
-	return Promise.resolve({id: 0,email, username: 'Kevin Martinez'});
+	return Promise.resolve({
+		id: 0,email, username: 'Kevin Martinez'
+	});
 }
 
 /**
@@ -27,10 +29,12 @@ export async function logout(): Promise<void> {
  *
  * @param credentials - Register credentials
  */
-export function register(credentials: TRegisterCredentials): Promise<IUser>{
+export function register(credentials: TRegisterCredentials): Promise<IUser> {
 	const {password, email, username} = credentials;
 	if(!password) return Promise.reject({status: 402});
-	return Promise.resolve({id: 1, email, username});
+	return Promise.resolve({
+		id: 1, email, username
+	});
 }
 
 /**
@@ -38,7 +42,7 @@ export function register(credentials: TRegisterCredentials): Promise<IUser>{
  *
  * @param email - The email to check
  */
-export function isEmailInUse(email: string): Promise<boolean>{
+export function isEmailInUse(email: string): Promise<boolean> {
 	if( email === MOCKUP_EMAIL)return Promise.resolve(true);
 	return Promise.resolve(false);
 }
@@ -46,7 +50,9 @@ export function isEmailInUse(email: string): Promise<boolean>{
 /**
  * Check if the user is loged in
  */
-export function isLoggedIn(): Promise<IUser>{
+export function isLoggedIn(): Promise<IUser> {
+	return Promise.resolve({
+		id: 0, email: MOCKUP_EMAIL, username: 'Kevin Martinez'
+	});
 	return Promise.reject();
-	return Promise.resolve({id: 0, email: MOCKUP_EMAIL, username: 'Kevin Martinez'});
 }

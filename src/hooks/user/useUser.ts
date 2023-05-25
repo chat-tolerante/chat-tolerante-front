@@ -9,26 +9,26 @@ import {login as userLogin, register as userRegister, logout as userLogout, isLo
 /**
  * Hook for managing the user state
  */
-export default function useUser(){
+export default function useUser() {
 	const userState = useSelector(userStateSelector);
 	const dispatch = useAppDispatch();
 
-	const login = useCallback(async(credentials: TLoginCredentials)=>{
+	const login = useCallback(async(credentials: TLoginCredentials)=> {
 		const user = await userLogin(credentials); 
 		dispatch(userActions.setUser(user));
 	},[dispatch]);
 
-	const register = useCallback(async(credentials: TRegisterCredentials)=>{
+	const register = useCallback(async(credentials: TRegisterCredentials)=> {
 		const user = await userRegister(credentials);
 		dispatch(userActions.setUser(user));
 	},[dispatch]);
 
-	const logout = useCallback(async()=>{
+	const logout = useCallback(async()=> {
 		await userLogout();
 		dispatch(globalActions.clear());
 	},[dispatch]);
 
-	const checkLogedIn = useCallback(async()=>{
+	const checkLogedIn = useCallback(async()=> {
 		try{
 			const user = await isLoggedIn();
 			dispatch(userActions.setUser(user));
@@ -37,5 +37,7 @@ export default function useUser(){
 		}
 	},[]);
 
-	return {...userState, login, register, logout, checkLogedIn};
+	return {
+		...userState, login, register, logout, checkLogedIn
+	};
 }

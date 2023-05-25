@@ -4,8 +4,8 @@ import {RootState} from '.';
 
 export interface IUserState {
 	user?: IUser;
-    isLoggedIn: boolean;
-    loading: boolean;
+	isLoggedIn: boolean;
+	loading: boolean;
 }
 
 const initialState: IUserState = {
@@ -17,10 +17,10 @@ export const userSlice = createSlice({
 	name: 'user',
 	initialState,
 	reducers: {
-		setLoading(state, action: PayloadAction<boolean>){
+		setLoading(state, action: PayloadAction<boolean>) {
 			state.loading = action.payload;
 		},
-		setUser(state, action: PayloadAction<IUser | undefined>){
+		setUser(state, action: PayloadAction<IUser | undefined>) {
 			state.isLoggedIn = !!action.payload;
 			state.user = action.payload;
 		}
@@ -28,4 +28,5 @@ export const userSlice = createSlice({
 });
 
 export const userActions = userSlice.actions;
-export const userStateSelector = (rootState: RootState)=>rootState[userSlice.name];
+export const userStateSelector = (rootState: RootState)=> 
+	rootState[userSlice.name];

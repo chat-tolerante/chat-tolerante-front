@@ -4,33 +4,46 @@ import MessageInput from 'src/components/molecules/MessageInput';
 import OpenChatRow from 'src/components/molecules/OpenChatRow';
 import {IDefaultProps} from 'src/types/default-props';
 import styles from './chat.module.css';
+import useOpenedChat from 'src/hooks/chat/useOpenedChat';
+import useUser from 'src/hooks/user/useUser';
+import {useEffect} from 'react';
+import {isNotUndef} from 'src/services/utils';
+
+export interface IOpenChatProps extends IDefaultProps{
+	userId?: number | string;
+}
 
 /**
  * Shows the whole opned chat
  *
  * @param props - Component props
  */
-export default function OpenChat(props: IDefaultProps){
+export default function OpenChat(props: IOpenChatProps) {
+	const {user: self} = useUser();
+	const {user, messages, fetch} = useOpenedChat(props.userId);
+
+	useEffect(()=> {
+		fetch();
+	},[fetch]);
+
 	return (
 		<div className={`flex flex-col ${props.className || ''}`}>
-			<OpenChatRow user={{username: 'Kevin Martinez', email: 'kevin@kevin', id: 0}}/>
+			<OpenChatRow user={user}/>
 			<div className={`flex-1 p-3 px-10 overflow-y-auto ${styles.gradient}`}>
-				<IncomingMessage className='my-3' message={{message: 'Hola', date: new Date().toString(), senderId: 0}}/>
-				<OutcomingMessage className='my-3' message={{message: 'Hola', date: new Date().toString(), senderId: 0}}/>
-				<IncomingMessage className='my-3' message={{message: 'Hola', date: new Date().toString(), senderId: 0}}/>
-				<IncomingMessage className='my-3' message={{message: 'Hola', date: new Date().toString(), senderId: 0}}/>
-				<IncomingMessage className='my-3' message={{message: 'Hola', date: new Date().toString(), senderId: 0}}/>
-				<IncomingMessage className='my-3' message={{message: 'Hola', date: new Date().toString(), senderId: 0}}/>
-				<IncomingMessage className='my-3' message={{message: 'Hola', date: new Date().toString(), senderId: 0}}/>
-				<IncomingMessage className='my-3' message={{message: 'Hola', date: new Date().toString(), senderId: 0}}/>
-				<OutcomingMessage className='my-3' message={{message: 'Hola', date: new Date().toString(), senderId: 0}}/>
-				<OutcomingMessage className='my-3' message={{message: 'Hola', date: new Date().toString(), senderId: 0}}/>
-				<OutcomingMessage className='my-3' message={{message: 'Hola', date: new Date().toString(), senderId: 0}}/>
-				<OutcomingMessage className='my-3' message={{message: 'Hola', date: new Date().toString(), senderId: 0}}/>
-				<OutcomingMessage className='my-3' message={{message: 'Hola', date: new Date().toString(), senderId: 0}}/>
-				<OutcomingMessage className='my-3' message={{message: 'Hola', date: new Date().toString(), senderId: 0}}/>
+				{
+					messages.map(message=> message.senderId === self?.id ?
+						(<OutcomingMessage key={message.date}
+							className='my-3'
+							message={message}/>)
+						:
+						(<IncomingMessage key={message.date}
+							className='my-3'
+							message={message}/>))
+				}
 			</div>
-			<MessageInput/>
+			{isNotUndef(props.userId) && 
+			<MessageInput userId={props.userId as string|number}/>
+			}
 		</div>
 	);
 }

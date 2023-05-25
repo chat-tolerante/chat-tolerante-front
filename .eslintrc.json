@@ -21,7 +21,7 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "indent": [
+        "@typescript-eslint/indent": [
             "error",
             "tab"
         ],
@@ -53,7 +53,7 @@
             "error",
             {
                 "before": false,
-                "after": false
+                "after": true
             }
         ],
         "@typescript-eslint/type-annotation-spacing": [
@@ -91,7 +91,68 @@
         ],
         "react/jsx-closing-tag-location": "error",
         "react/jsx-one-expression-per-line": "error",
-        "react/jsx-indent": ["error", "tab"]
+        "react/jsx-indent": [
+            "error",
+            "tab"
+        ],
+        "space-before-blocks": [
+            "error"
+        ],
+        "space-before-function-paren": [
+            "error",
+            "never"
+        ],
+        "no-console": "error",
+        "max-len": [
+            "error",
+            {
+                "code": 80,
+                "ignoreStrings": true,
+                "ignoreTemplateLiterals": true
+            }
+        ],
+        "newline-per-chained-call": [
+            "error",
+            {
+                "ignoreChainWithDepth": 2
+            }
+        ],
+        "object-property-newline": [
+            "error",
+            {
+                "allowAllPropertiesOnSameLine": true
+            }
+        ],
+        "object-curly-newline": [
+            "error",
+            {
+                "ObjectExpression": {
+                    "multiline": true,
+                    "minProperties": 3
+                },
+                "ObjectPattern": {
+                    "multiline": true
+                },
+                "ImportDeclaration": "never",
+                "ExportDeclaration": {
+                    "multiline": true,
+                    "minProperties": 3
+                }
+            }
+        ],
+        "react/jsx-max-props-per-line": [
+            "error",
+            {
+                "maximum": {
+                    "single": 2,
+                    "multi": 1
+                }
+            }
+        ],
+        "function-paren-newline": [
+            "error",
+            "multiline-arguments"
+        ]
     },
     "settings": {
         "import/resolver": {

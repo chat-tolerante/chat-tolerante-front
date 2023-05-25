@@ -12,16 +12,16 @@ import {TLoginCredentials, loginSchema, newLoginCredentials} from 'src/schemas/l
 /**
  * Login Form Screen
  */
-export default function Login(){
+export default function Login() {
 	const {login} = useUser();
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
-	const submit = async (values: TLoginCredentials)=>{
+	const submit = async(values: TLoginCredentials)=> {
 		try{
 			setError('');
 			setLoading(true);
 			await login(values);
-		}catch(e){
+		}catch(e) {
 			setError(JSON.stringify(e));
 			setLoading(false);
 		}
@@ -37,15 +37,25 @@ export default function Login(){
 					{error}
 				</Error>
 				<div className='flex-[3] md:w-8/12 w-10/12'>
-					<Formik onSubmit={submit} initialValues={newLoginCredentials()} validationSchema={loginSchema}>
+					<Formik onSubmit={submit}
+						initialValues={newLoginCredentials()}
+						validationSchema={loginSchema}>
 						<Form >
-							<CustomFormikInput type='email' placeholder='Correo' className='my-5' name='email'/>
-							<CustomFormikInput type='password' placeholder='Contraseña' className='my-5' name='password'/>
+							<CustomFormikInput type='email'
+								placeholder='Correo'
+								className='my-5'
+								name='email'/>
+							<CustomFormikInput type='password'
+								placeholder='Contraseña'
+								className='my-5'
+								name='password'/>
 							<div className='flex flex-col-reverse md:flex-row  justify-between mt-16 items-center'>
 								<Link to={'../register'} className='underline text-primary '>
 									Crear cuenta
 								</Link>
-								<Button loading={loading} className='mb-6 md:mb-0' type='submit'>
+								<Button loading={loading}
+									className='mb-6 md:mb-0 px-5 py-3 w-40'
+									type='submit'>
 									Siguiente
 								</Button>
 							</div>
