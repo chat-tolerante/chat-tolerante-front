@@ -10,7 +10,7 @@ import {useEffect} from 'react';
 import {isNotUndef} from 'src/services/utils';
 
 export interface IOpenChatProps extends IDefaultProps{
-	userId?: number | string;
+	userId?: number;
 }
 
 /**
@@ -43,7 +43,7 @@ export default function OpenChat(props: IOpenChatProps) {
 				}
 			</div>
 			{isNotUndef(props.userId) && 
-			<MessageInput userId={props.userId as string|number}/>
+			<MessageInput userId={props.userId as number}/>
 			}
 		</div>
 	);

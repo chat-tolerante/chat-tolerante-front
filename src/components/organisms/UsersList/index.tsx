@@ -8,9 +8,9 @@ import useUsers from 'src/hooks/user/useUsers';
 import {isSmScreen} from 'src/services/utils';
 
 export interface IUserList{
-	selectedId?: number | string;
+	selectedId?: number;
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	onSelectUser?: (userId: number | string)=> any;
+	onSelectUser?: (userId: number )=> any;
 }
 
 /**
@@ -28,7 +28,7 @@ export default function UserList(props: IUserList) {
 			.toUpperCase()
 			.includes(search.toUpperCase())),[users, search]);
 
-	const onUserClick = (userId: number | string)=> {
+	const onUserClick = (userId: number)=> {
 		setSearch('');
 		if(isSmScreen()) {
 			navigate(`/chat/${userId}`);

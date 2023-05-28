@@ -8,7 +8,7 @@ import {useState} from 'react';
  * The main page, the chat
  */
 export default function Chat() {
-	const [userId, setUserId] = useState<number | string>();
+	const [userId, setUserId] = useState<number>();
 
 	return (
 		<Container className='lg:py-4'>

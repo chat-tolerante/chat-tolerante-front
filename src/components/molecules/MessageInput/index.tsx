@@ -4,7 +4,7 @@ import useSend from 'src/hooks/chat/useSend';
 import {useCallback, useState} from 'react';
 import Button from 'src/components/atoms/Button';
 export interface IMessageInput{
-	userId: number | string;
+	userId: number;
 }
 
 /**
