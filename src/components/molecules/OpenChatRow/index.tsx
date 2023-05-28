@@ -28,7 +28,7 @@ export default function OpenChatRow(props: IOpenChatRowProps) {
 						width="1.2em"
 						fill='white'/>
 				</button>
-				{props.user?.username}
+				{props.user?.name}
 			</div>
 			<button onClick={()=> setOpenModal(s=> !s)} className='flex justify-center items-center'>
 				<MoreIcon width={'1.8rem'}  fill='white'/>

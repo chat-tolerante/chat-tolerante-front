@@ -1,7 +1,7 @@
 import {TLoginCredentials} from 'src/schemas/login.schema';
 import {TRegisterCredentials} from 'src/schemas/register.schema';
 import {IUser} from 'src/types/user';
-const MOCKUP_EMAIL='kevin@test.com';
+import {ManagedResponse, asType, get, post} from './rest';
 
 /**
  * Inicia sesion con correo y contraseña
@@ -9,19 +9,14 @@ const MOCKUP_EMAIL='kevin@test.com';
  * @param credentials - Login credentials
  */
 export async function login(credentials: TLoginCredentials): Promise<IUser> {
-	const {email, password} = credentials;
-	if(email !== MOCKUP_EMAIL || !password)
-		return Promise.reject({status: 401});
-	return Promise.resolve({
-		id: 0,email, username: 'Kevin Martinez'
-	});
+	return asType<IUser>(post('/login', credentials));
 }
 
 /**
  * Cierra la sesión abierta
  */
-export async function logout(): Promise<void> {
-	return Promise.resolve();
+export async function logout(): Promise<ManagedResponse<string>> {
+	return post('/logout');
 }
 
 /**
@@ -30,11 +25,7 @@ export async function logout(): Promise<void> {
  * @param credentials - Register credentials
  */
 export function register(credentials: TRegisterCredentials): Promise<IUser> {
-	const {password, email, username} = credentials;
-	if(!password) return Promise.reject({status: 402});
-	return Promise.resolve({
-		id: 1, email, username
-	});
+	return asType<IUser>(post('/register', credentials));
 }
 
 /**
@@ -43,16 +34,12 @@ export function register(credentials: TRegisterCredentials): Promise<IUser> {
  * @param email - The email to check
  */
 export function isEmailInUse(email: string): Promise<boolean> {
-	if( email === MOCKUP_EMAIL)return Promise.resolve(true);
-	return Promise.resolve(false);
+	return asType<boolean>(get(`/email-in-use?email=${encodeURIComponent(email)}`));
 }
 
 /**
  * Check if the user is loged in
  */
 export function isLoggedIn(): Promise<IUser> {
-	return Promise.resolve({
-		id: 0, email: MOCKUP_EMAIL, username: 'Kevin Martinez'
-	});
-	return Promise.reject();
+	return asType<IUser>(get('/user'));
 }

@@ -1,8 +1,8 @@
 import {IUser} from './user';
 
 export interface IMessage{
-    message: string;
-    date: string;
-    senderId: number | string;
-    sender?: IUser;
+	text: string;
+	createdDate: string;
+	sender: IUser;
+	receiver: IUser;
 }

@@ -24,7 +24,7 @@ export default function UserList(props: IUserList) {
 	const {users, getList} = useUsers();
 	const [search, setSearch] = useState('');
 	const filteredUsers = useMemo(()=> users.filter(user=> 
-		user.username
+		user.name
 			.toUpperCase()
 			.includes(search.toUpperCase())),[users, search]);
 
@@ -47,7 +47,7 @@ export default function UserList(props: IUserList) {
 	return (
 		<div className="bg-bg1 h-full flex flex-col">
 			<div className='pt-3 px-5 flex justify-center items-center'>
-				<UserCircle username={user?.username || ''} className='h-9 mr-3 w-9 text-xs'/>
+				<UserCircle username={user?.name || ''} className='h-9 mr-3 w-9 text-xs'/>
 				<Input value={search}
 					onChange={({target})=> setSearch(target.value)}
 					className='h-6 p-2 py-4 text-gray-800 flex-1'

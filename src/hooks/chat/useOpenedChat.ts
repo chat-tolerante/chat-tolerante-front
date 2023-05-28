@@ -20,9 +20,16 @@ export default function useOpenedChat(userId?: number | string) {
 		dispatch(messagesActions.setMessages({userId, messages: list}));
 	},[userId]);
 
+	const polling = useCallback(()=> {
+		fetch();
+		const intervalId = setInterval(fetch, 300);
+		return ()=> clearInterval(intervalId);
+	},[fetch]);
+
 	return {
 		user, 
 		messages,
-		fetch
+		fetch,
+		polling
 	};
 }

@@ -43,7 +43,7 @@ export default function Register() {
 						<Form>
 							<CustomFormikInput placeholder='Nombre de usuario'
 								className='my-5'
-								name='username'/>
+								name='name'/>
 							<CustomFormikInput placeholder='Correo'
 								className='my-5'
 								name='email'/>

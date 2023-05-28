@@ -20,23 +20,24 @@ export interface IOpenChatProps extends IDefaultProps{
  */
 export default function OpenChat(props: IOpenChatProps) {
 	const {user: self} = useUser();
-	const {user, messages, fetch} = useOpenedChat(props.userId);
+	const {user, messages, polling} = useOpenedChat(props.userId);
 
 	useEffect(()=> {
-		fetch();
-	},[fetch]);
+		return polling();
+	},[polling]);
+
 
 	return (
 		<div className={`flex flex-col ${props.className || ''}`}>
 			<OpenChatRow user={user}/>
 			<div className={`flex-1 p-3 px-10 overflow-y-auto ${styles.gradient}`}>
 				{
-					messages.map(message=> message.senderId === self?.id ?
-						(<OutcomingMessage key={message.date}
+					messages.map(message=> message.sender.id === self?.id ?
+						(<OutcomingMessage key={message.createdDate}
 							className='my-3'
 							message={message}/>)
 						:
-						(<IncomingMessage key={message.date}
+						(<IncomingMessage key={message.createdDate}
 							className='my-3'
 							message={message}/>))
 				}
