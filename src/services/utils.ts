@@ -84,6 +84,7 @@ export function errorToString(e: any) {
 			if(fetchError.status === 404) return 'No se encontró el recurso';
 			if(fetchError.status === 401) return 'Credenciales incorrectas';
 			if(fetchError.status === 402) return 'Error en la solicitud';
+			if(fetchError.status === 503) return 'Servicio no disponible';
 		}
 		if(typeof fetchError.data !== 'undefined') {
 			if(typeof fetchError.data.message === 'string') 
