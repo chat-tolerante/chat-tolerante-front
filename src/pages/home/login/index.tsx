@@ -8,6 +8,7 @@ import Error from 'src/components/atoms/Error';
 import CustomFormikInput from 'src/components/molecules/CustomFormikInput';
 import useUser from 'src/hooks/user/useUser';
 import {TLoginCredentials, loginSchema, newLoginCredentials} from 'src/schemas/login.schema';
+import {errorToString} from 'src/services/utils';
 
 /**
  * Login Form Screen
@@ -22,7 +23,7 @@ export default function Login() {
 			setLoading(true);
 			await login(values);
 		}catch(e) {
-			setError(JSON.stringify(e));
+			setError(errorToString(e));
 			setLoading(false);
 		}
 	};

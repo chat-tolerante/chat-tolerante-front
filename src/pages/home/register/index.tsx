@@ -8,6 +8,7 @@ import Error from 'src/components/atoms/Error';
 import CustomFormikInput from 'src/components/molecules/CustomFormikInput';
 import useUser from 'src/hooks/user/useUser';
 import {TRegisterCredentials, newRegisterCredentials, registerSchema} from 'src/schemas/register.schema';
+import {errorToString} from 'src/services/utils';
 
 /**
  * Register form screen
@@ -22,7 +23,7 @@ export default function Register() {
 			setLoading(true);
 			await register(values);
 		}catch(e) {
-			setError(JSON.stringify(e));
+			setError(errorToString(e));
 			setLoading(false);
 		}
 	};

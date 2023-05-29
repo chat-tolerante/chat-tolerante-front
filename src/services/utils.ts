@@ -1,3 +1,5 @@
+import {ManagedResponse} from './rest';
+
 export const Months = [
 	'Ene',
 	'Feb',
@@ -63,4 +65,31 @@ export function isSmScreen() {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function isNotUndef(value?: any) {
 	return typeof value !== 'undefined';
+}
+
+/**
+ * Tries to parse an error to a meaningful string
+ *
+ * @param e - The error object
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function errorToString(e: any) {
+	if(!isNotUndef(e)) return '';
+	if(typeof e === 'string') return e;
+	if(typeof e === 'object') {
+		if(typeof e.message === 'string') return e.message;
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		const fetchError = e as ManagedResponse<any>;
+		if(typeof fetchError.status === 'number') {
+			if(fetchError.status === 404) return 'No se encontró el recurso';
+			if(fetchError.status === 401) return 'Credenciales incorrectas';
+			if(fetchError.status === 402) return 'Error en la solicitud';
+		}
+		if(typeof fetchError.data !== 'undefined') {
+			if(typeof fetchError.data.message === 'string') 
+				return fetchError.data.message;
+			return JSON.stringify(fetchError.data);
+		}
+	}
+	return `Error: ${e}`;
 }
